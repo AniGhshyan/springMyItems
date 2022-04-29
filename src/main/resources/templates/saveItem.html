@@ -5,6 +5,11 @@
     <title>Add User</title>
 </head>
 <body>
+<div th:if="${errors != null && !errors.isEmpty()}">
+    <ul>
+        <li style="color: red" th:each="error: ${errors}" th:text="${error}"></li>
+    </ul>
+</div>
 save Item:
 <form action="/items/add" method="post" enctype="multipart/form-data">
     <input th:if="${item!=null}" type="hidden" th:value="${item.id}" name="id"/>
